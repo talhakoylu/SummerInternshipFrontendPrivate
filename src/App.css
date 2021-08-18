@@ -1,4 +1,4 @@
-a{
+a {
   text-decoration: none !important;
 }
 
@@ -35,4 +35,17 @@ a{
   to {
     transform: rotate(360deg);
   }
+}
+
+hr {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+hr2 {
+  border-top: "2px solid #fff ";
+  margin-left: 20;
+  margin-right: 20;
 }

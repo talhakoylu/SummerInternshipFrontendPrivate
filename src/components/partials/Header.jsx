@@ -1,11 +1,13 @@
-import { Navbar, Container, NavDropdown, Nav, Button } from 'react-bootstrap'
+import { Navbar, Container } from 'react-bootstrap'
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Categories from '../Nav/CategoryMenu'
 import { Link } from 'react-router-dom'
 import NavMenu from './../Nav/NavMenu';
+import AccountArea from '../Nav/AccountArea'
 
 export default function Header() {
+
     return (
         <div className="mb-4">
             <Navbar bg="light" expand="lg">
@@ -20,10 +22,7 @@ export default function Header() {
                     <Navbar.Collapse id="basic-navbar-nav">
                         <NavMenu />
                         <div className="d-flex">
-                            <Button>
-                                <FontAwesomeIcon icon={"user"} className="me-2"></FontAwesomeIcon>
-                                Hesap Yönetimi
-                            </Button>
+                            <AccountArea></AccountArea>
                         </div>
                     </Navbar.Collapse>
                 </Container>
