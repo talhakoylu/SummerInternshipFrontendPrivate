@@ -5,9 +5,9 @@ import Categories from '../Nav/CategoryMenu'
 import { Link } from 'react-router-dom'
 import NavMenu from './../Nav/NavMenu';
 import AccountArea from '../Nav/AccountArea'
+import LanguageDropdown from '../Nav/LanguageDropdown'
 
 export default function Header() {
-
     return (
         <div className="mb-4">
             <Navbar bg="light" expand="lg">
@@ -23,6 +23,9 @@ export default function Header() {
                         <NavMenu />
                         <div className="d-flex">
                             <AccountArea></AccountArea>
+                            <div className="ms-2">
+                                <LanguageDropdown></LanguageDropdown>
+                            </div>
                         </div>
                     </Navbar.Collapse>
                 </Container>

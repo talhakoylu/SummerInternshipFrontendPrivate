@@ -1,0 +1,18 @@
+{
+    "home" : "Ana Sayfa",
+    "book": {
+        "books": "Kitaplar",
+        "authors": "Yazarlar"
+    },
+    "account": {
+        "account_management" : "Hesap Yönetimi",
+        "login" : "Giriş Yap",
+        "register" : "Kayıt Ol",
+        "username" : "Kullanıcı Adı",
+        "password" : "Şifre",
+        "remember_me" : "Beni hatırla",
+        "username_placeholder": "Kullanıcı adınızı giriniz",
+        "password_placeholder": "Şifrenizi giriniz",
+        "modal_or" : "VEYA"
+    }
+}

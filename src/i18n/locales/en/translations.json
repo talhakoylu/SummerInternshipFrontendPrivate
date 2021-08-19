@@ -1,0 +1,18 @@
+{
+    "home": "Home Page",
+    "book": {
+        "books": "Books",
+        "authors": "Authors"
+    },
+    "account": {
+        "account_management" : "Account Management",
+        "login" : "Login",
+        "register" : "Register",
+        "username" : "Username",
+        "password" : "Password",
+        "remember_me" : "Remember me",
+        "username_placeholder": "Enter username",
+        "password_placeholder": "Enter password",
+        "modal_or" : "OR"
+    }
+}
