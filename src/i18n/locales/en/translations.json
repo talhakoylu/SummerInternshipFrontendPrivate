@@ -13,6 +13,24 @@
         "remember_me" : "Remember me",
         "username_placeholder": "Enter username",
         "password_placeholder": "Enter password",
-        "modal_or" : "OR"
+        "modal_or" : "OR",
+        "welcome" : "Welcome",
+        "log_out" : "Log Out",
+        "log_out_content" : "You have successfully logged out!"
+    },
+    "services" : {
+        "auth": {
+            "token" : {
+                "failure_title" : "Login Failure",
+                "failure_content" : "Check your username and password and try again.",
+                "success_title" : "Successful Login",
+                "success_content" : "You have successfully logged in.",
+                "required_field_missing" : "Empty Field!",
+                "username_required" : "The username field must not be empty.",
+                "password_required" : "The password field must not be empty.",
+                "went_wrong_title": "Something went wrong!",
+                "went_wrong_content": "Please connect us!"
+            }
+        }
     }
 }

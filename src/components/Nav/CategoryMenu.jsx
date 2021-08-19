@@ -4,7 +4,7 @@ import { Badge, Container } from 'react-bootstrap';
 function Categories() {
     const CategoryItem = () => {
         return (
-            <Badge bg="light" className="text-dark m-1 py-2">Kategori</Badge>
+            <Badge bg="secondary" className="text-dark m-1 py-2">Kategori</Badge>
         )
     }
 

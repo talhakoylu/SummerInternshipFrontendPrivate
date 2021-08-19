@@ -7,4 +7,10 @@ $container-max-widths: (
 ) !default;
 $enable-negative-margins: true;
 
+$info: #98c1d9;
+$primary: #003049;
+$warning: #F77F00;
+$secondary: #EAE2B7;
+$danger: #D62828;
+
 @import "bootstrap/bootstrap";

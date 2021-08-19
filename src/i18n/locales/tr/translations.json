@@ -13,6 +13,24 @@
         "remember_me" : "Beni hatırla",
         "username_placeholder": "Kullanıcı adınızı giriniz",
         "password_placeholder": "Şifrenizi giriniz",
-        "modal_or" : "VEYA"
+        "modal_or" : "VEYA",
+        "welcome" : "Hoş Geldiniz",
+        "log_out" : "Çıkış Yap",
+        "log_out_content" : "Başarıyla çıkış yaptınız!"
+    },
+    "services" : {
+        "auth": {
+            "token" : {
+                "failure_title" : "Başarısız Giriş Denemesi",
+                "failure_content" : "Kullanıcı adı ve şifrenizi kontrol ediniz.",
+                "success_title" : "Giriş Başarılı",
+                "success_content" : "Başarıyla giriş yaptınız.",
+                "required_field_missing" : "Boş Alan!",
+                "username_required" : "Kullanıcı adı alanı boş bırakılamaz.",
+                "password_required" : "Şifre alanı boş bırakılamaz.",
+                "went_wrong_title": "Bir şeyler yanlış gitti!",
+                "went_wrong_content": "Lütfen bizimle iletişime geçin!"
+            }
+        }
     }
 }
