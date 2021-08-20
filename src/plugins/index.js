@@ -1,2 +1,3 @@
 import notification from "./notification";
-export { notification };
+import yup from "./yup";
+export { notification, yup };
