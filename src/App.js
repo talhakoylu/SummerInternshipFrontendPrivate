@@ -10,23 +10,31 @@ import "react-notifications-component/dist/theme.css";
 import { useDispatch } from "react-redux";
 import Home from "./pages/Home";
 import { useEffect } from "react";
-import { setUser } from "./redux/actions/auth.action";
-import httpService from "./services/http.service";
+import { setLanguage, setUser } from "./redux/actions/auth.action";
+import { HttpService } from "./services";
 import { AuthService } from "./redux/services";
-import { Col, Container, Row} from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
 
 library.add(fab, fas, far);
 
 function App() {
   const dispatch = useDispatch();
+  const { i18n } = useTranslation();
 
   useEffect(() => {
     (async () => {
+      const lang = await localStorage.getItem("lang");
+      const language = lang || "tr";
+      HttpService.client.defaults.headers["Accept-Language"] = language;
+      dispatch(setLanguage(language));
+      i18n.changeLanguage(language);
+
       const token = await localStorage.getItem("token");
       if (token) {
         const user = await localStorage.getItem("user");
         dispatch(setUser(JSON.parse(user)));
-        httpService.client.defaults.headers.common["Authorization"] =
+        HttpService.client.defaults.headers.common["Authorization"] =
           "Bearer " + JSON.parse(token).access;
 
         AuthService.me()

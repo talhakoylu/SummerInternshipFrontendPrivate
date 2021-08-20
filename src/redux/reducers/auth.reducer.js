@@ -1,4 +1,4 @@
-import {SET_FETCHING, SET_USER} from "../actions/auth.action";
+import {SET_FETCHING, SET_LANGUAGE, SET_USER} from "../actions/auth.action";
 
 const initialState = {
   fetching: false,
@@ -14,6 +14,8 @@ export default function authReducer(state = initialState, action) {
       return {...state, user: payload};
     case SET_FETCHING:
       return {...state, fetching: payload};
+    case SET_LANGUAGE:
+      return {...state, lang: payload};
 
     default:
       return state;

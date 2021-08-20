@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Form, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import Modal from './../../Modal';
 import RegisterModal from './RegisterModal';
@@ -8,6 +8,8 @@ import { AuthService } from '../../../redux/services';
 import { useDispatch } from 'react-redux';
 import httpService from '../../../services/http.service';
 import { setUser } from '../../../redux/actions/auth.action';
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 
 export default function LoginModal({ ...dist }) {
     const { t } = useTranslation();
@@ -41,20 +43,14 @@ export default function LoginModal({ ...dist }) {
                         notification.add('success', t('services.auth.token.success_title'), t('services.auth.token.success_content'))
                     })
                     .catch(err => {
-                        notification.add('danger',  t('services.auth.token.went_wrong_title'), t('services.auth.token.went_wrong_content'))
+                        notification.add('danger', t('services.auth.token.went_wrong_title'), t('services.auth.token.went_wrong_content'))
                     })
                     .finally(() => {
                         setFetching(false);
                     });
             })
             .catch(err => {
-                if (err["response"]["data"]["username"]) {
-                    notification.add('danger', t('services.auth.token.required_field_missing'), t('services.auth.token.username_required'))
-                } else if (err["response"]["data"]["password"]) {
-                    notification.add('danger', t('services.auth.token.required_field_missing'), t('services.auth.token.password_required'))
-                } else {
-                    notification.add('danger', t('services.auth.token.failure_title'), t('services.auth.token.failure_content'))
-                }
+                notification.add('danger', t('services.auth.token.failure_title'), t('services.auth.token.failure_content'))
                 setFetching(false);
             })
             .finally(() => {
@@ -64,33 +60,52 @@ export default function LoginModal({ ...dist }) {
     return (
         <>
             <Modal title={t("account.login")} {...dist}>
-                <Form>
-                    <Form.Group className="mb-3" controlId="formUsername">
-                        <Form.Label>{t("account.username")}</Form.Label>
-                        <Form.Control required type="text" placeholder={t("account.username_placeholder")} onChange={(e) => setUsername(e.target.value)} />
-                    </Form.Group>
+                <Formik
+                    initialValues={{
+                        password: '',
+                        username: '',
+                        rememberMe: false
+                    }}
+                    validationSchema={yup.object().shape({
+                        username: yup.string()
+                            .required(t("account.register_modal.errors.username_required")),
+                        password: yup.string()
+                            .required(t("account.register_modal.errors.password_required"))
+                    })}
+                    onSubmit={fields => {
+                        loginRequest()
+                    }}
+                >
+                    {({ errors, status, touched, handleChange }) => (
+                        <Form>
+                            <div className="form-group mb-2">
+                                <label htmlFor="username" className="mb-1">{t("account.register_modal.username")}</label>
+                                <Field name="username" type="text" className={'form-control' + (errors.username && touched.username ? ' is-invalid' : '')} onChange={e => {
+                                    handleChange(e)
+                                    setUsername(e.target.value)
+                                }} />
+                                <ErrorMessage name="username" component="div" className="invalid-feedback" />
+                            </div>
 
-                    <Form.Group className="mb-3" controlId="formPassword">
-                        <Form.Label>{t("account.password")}</Form.Label>
-                        <Form.Control required type="password" placeholder={t("account.password_placeholder")} onChange={(e) => setPassword(e.target.value)} />
-                    </Form.Group>
-                    <Form.Group className="mb-3" controlId="formCheckbox">
-                        <Form.Check type="checkbox" label={t("account.remember_me")} />
-                    </Form.Group>
-                    <div className="d-grid gap-2">
-                        {username && password ?
-                            <Button disabled={fetching ? true : false} variant="primary" className="block" type="submit" onClick={(e) => {
-                                e.preventDefault();
-                                loginRequest()
-                            }}>
-                                {t("account.login")}
-                            </Button> :
-                            <Button disabled={true} variant="primary" className="block" type="submit">
-                                {t("account.login")}
-                            </Button>}
+                            <div className="form-group mb-2">
+                                <label htmlFor="password" className="mb-1">{t("account.register_modal.password")}</label>
+                                <Field name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} onChange={e => {
+                                    handleChange(e)
+                                    setPassword(e.target.value)
+                                }} />
+                                <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                            </div>
+                            <div className="form-group form-check mb-2">
+                                <Field type="checkbox" name="rememberMe" className={'form-check-input'} />
+                                <label htmlFor="rememberMe" className="form-check-label">{t("account.remember_me")}</label>
+                            </div>
 
-                    </div>
-                </Form>
+                            <div className="d-grid gap-2 mt-2">
+                                <button type="submit" disabled={fetching ? true : false} className="btn btn-primary block">{t("account.login")}</button>
+                            </div>
+                        </Form>
+                    )}
+                </Formik>
                 <div className="d-flex my-4">
                     <hr className="my-auto flex-grow-1" />
                     <div className="px-4">{t("account.modal_or")}</div>
