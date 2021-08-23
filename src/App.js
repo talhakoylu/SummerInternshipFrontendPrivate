@@ -5,26 +5,29 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import Header from "./components/partials/Header";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import "react-notifications-component/dist/theme.css";
-import { useDispatch } from "react-redux";
-import Home from "./pages/Home";
+import { useDispatch, useSelector } from "react-redux";
+import HomePage from "./pages/HomePage";
 import { useEffect } from "react";
 import { setLanguage, setUser } from "./redux/actions/auth.action";
 import { HttpService } from "./services";
 import { AuthService } from "./redux/services";
-import { Col, Container, Row } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
+import FullWidthLayoutRoute from "./layouts/FullWidthLayout";
+import LayoutWidthSidebarRoute from "./layouts/LayoutWithSidebar";
+import BooksPage from "./pages/BooksPage";
 
 library.add(fab, fas, far);
 
 function App() {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
+  const lang = localStorage.getItem("lang");
+  const fetching = useSelector((state) => state.auth.fetching);
 
   useEffect(() => {
     (async () => {
-      const lang = await localStorage.getItem("lang");
       const language = lang || "tr";
       HttpService.client.defaults.headers["Accept-Language"] = language;
       dispatch(setLanguage(language));
@@ -47,27 +50,38 @@ function App() {
           .finally(() => {});
       }
     })();
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="App">
       <Router>
-        <Header></Header>
-        <Container>
-          <Row>
-            <Col lg={9}>
-              <Switch>
-                <Route path="/authors">authors</Route>
-                <Route path="/books">books</Route>
-                <Route path="/">
-                  <Home />
-                </Route>
-              </Switch>
-            </Col>
-
-            <Col lg={3}>sidebar</Col>
-          </Row>
-        </Container>
+        <div>
+          <div className={"min-vh-100 d-flex flex-column"}>
+            <Header></Header>
+            <div style={{ flex: 1 }} className={"position-relative"}>
+              {fetching && (
+                <div
+                  className={
+                    "position-absolute bg-white w-100 h-100 d-flex justify-content-center align-items-center"
+                  }
+                  style={{ zIndex: 20 }}
+                >
+                  <img
+                    className={"d-inline-block"}
+                    src={"/fetching.svg"}
+                    alt="Loading"
+                  />
+                </div>
+              )}
+                  <Switch>
+                    <FullWidthLayoutRoute path="/authors">authors</FullWidthLayoutRoute>
+                    <LayoutWidthSidebarRoute path="/books" component={BooksPage}></LayoutWidthSidebarRoute>
+                    <FullWidthLayoutRoute path="/" component={HomePage}>
+                    </FullWidthLayoutRoute>
+                  </Switch>
+            </div>
+          </div>
+        </div>
       </Router>
     </div>
   );
