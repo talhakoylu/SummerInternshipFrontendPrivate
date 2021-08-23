@@ -1,8 +1,18 @@
 {
     "home": "Home Page",
+    "loading" : "Loading",
     "book": {
         "books": "Books",
-        "authors": "Authors"
+        "language" : "Language",
+        "level" : "Level",
+        "category" : "Category",
+        "authors": "Authors",
+        "levels" : "Book Levels",
+        "levels_not_found" : "Level not found.",
+        "languages" : "Book Languages",
+        "language_not_found" : "Language not found.",
+        "book_not_found" : "Book not found.",
+        "details" : "Details"
     },
     "account": {
         "account_management": "Account Management",

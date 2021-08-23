@@ -1,8 +1,18 @@
 {
     "home": "Ana Sayfa",
+    "loading" : "Yükleniyor",
     "book": {
         "books": "Kitaplar",
-        "authors": "Yazarlar"
+        "language" : "Dil",
+        "level" : "Seviye",
+        "category" : "Kategori",
+        "authors": "Yazarlar",
+        "levels" : "Kitap Seviyeleri",
+        "levels_not_found" : "Seviye bulunamadı.",
+        "languages" : "Kitap Dilleri",
+        "language_not_found" : "Dil bulunamadı.",
+        "book_not_found" : "Kitap bulunamadı.",
+        "details" : "Detaylar"
     },
     "account": {
         "account_management": "Hesap Yönetimi",

@@ -1,4 +1,4 @@
-import { SET_CATEGORIES, SET_FETCHING, SET_LANGUAGE, SET_USER } from "../actions/auth.action";
+import { SET_BOOK_LANGUAGES, SET_CATEGORIES, SET_FETCHING, SET_LANGUAGE, SET_LEVELS, SET_USER } from "../actions/auth.action";
 
 const initialState = {
   fetching: false,
@@ -7,7 +7,7 @@ const initialState = {
   user: null,
   loggedIn: false,
   categories: [],
-  languages: [],
+  bookLanguages: [],
   levels: [],
 };
 
@@ -23,6 +23,10 @@ export default function authReducer(state = initialState, action) {
       return { ...state, lang: payload };
     case SET_CATEGORIES:
       return { ...state, categories: payload };
+    case SET_LEVELS:
+      return { ...state, levels: payload };
+    case SET_BOOK_LANGUAGES:
+      return {...state, bookLanguages: payload}
 
     default:
       return state;

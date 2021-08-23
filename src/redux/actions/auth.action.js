@@ -2,6 +2,8 @@ export const SET_USER = "SET_USER";
 export const SET_FETCHING = "SET_FETCHING";
 export const SET_LANGUAGE = "SET_LANGUAGE";
 export const SET_CATEGORIES = "SET_CATEGORIES";
+export const SET_LEVELS = "SET_LEVELS";
+export const SET_BOOK_LANGUAGES = "SET_BOOK_LANGUAGES";
 
 export const setUser = (payload) => {
   return {
@@ -27,6 +29,20 @@ export const setLanguage = (payload) => {
 export const setCategories = (payload) => {
   return {
     type: SET_CATEGORIES,
+    payload,
+  };
+};
+
+export const setLevels = (payload) => {
+  return {
+    type: SET_LEVELS,
+    payload,
+  };
+};
+
+export const setBookLanguages = (payload) => {
+  return {
+    type: SET_BOOK_LANGUAGES,
     payload,
   };
 };

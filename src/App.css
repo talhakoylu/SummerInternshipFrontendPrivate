@@ -44,8 +44,21 @@ hr {
   border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-hr2 {
-  border-top: "2px solid #fff ";
-  margin-left: 20;
-  margin-right: 20;
+.scroll {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(165, 165, 165);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(65, 65, 65);
+  border-radius: 10px;
+  border: 1px solid rgb(63, 63, 63);
 }
