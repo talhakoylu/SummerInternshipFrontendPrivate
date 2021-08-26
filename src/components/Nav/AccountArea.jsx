@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/actions/auth.action';
 import notification from './../../plugins/notification';
+import localStorageClear from '../../plugins/localStorageClear';
 
 export default function AccountArea() {
     const { t } = useTranslation();
@@ -25,7 +26,7 @@ export default function AccountArea() {
                 <DropdownButton variant = "secondary" title={t("account.welcome") + ", " + user.username}>
                     <Dropdown.Item onClick={() => {
                         dispatch(setUser(null));
-                        localStorage.clear()
+                        localStorageClear();
                         notification.add('info', t("account.log_out"), t("account.log_out_content"))
                     }}>{t("account.log_out")}</Dropdown.Item>
                 </DropdownButton>

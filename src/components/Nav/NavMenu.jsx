@@ -4,6 +4,11 @@ import { useTranslation } from "react-i18next";
 import {
     NavLink
 } from "react-router-dom";
+
+/**
+ * A function that adds links to pages and outputs HTML.
+ * @returns HTML output
+ */
 function NavMenu() {
     const {t} = useTranslation();
     return (

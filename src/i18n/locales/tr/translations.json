@@ -1,6 +1,8 @@
 {
     "home": "Ana Sayfa",
     "loading" : "Yükleniyor",
+    "copy_right_text" : "© 2021 Bookido, tüm hakları saklıdır.",
+    "about_page" : "Hakkımızda",
     "book": {
         "books": "Kitaplar",
         "language" : "Dil",

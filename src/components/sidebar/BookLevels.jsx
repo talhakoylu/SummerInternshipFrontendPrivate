@@ -36,7 +36,7 @@ export default function BookLevels() {
                         <ListGroup variant="flush">
                             {levels.map((level) => {
                                 return (
-                                    <Link to={"/books?level=" + level.id}>
+                                    <Link key={level.title} to={"/books?level=" + level.id}>
                                         <ListGroup.Item>{lang === "en" ? level.title_english : level.title}</ListGroup.Item>
                                     </Link>
                                 )

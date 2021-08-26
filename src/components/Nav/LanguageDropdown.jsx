@@ -5,7 +5,11 @@ import { useDispatch } from 'react-redux';
 import { setLanguage } from '../../redux/actions/auth.action';
 
 const languages = { "tr": "Türkçe", "en": "English" };
-
+/**
+ * A dropdown menu for language selection process. After the select phase, selections are storing at localStorage
+ * and every fields of the web site are changing for selected language.
+ * @returns HTML output
+ */
 export default function LanguageDropdown() {
     const dispatch = useDispatch();
     const { i18n } = useTranslation();

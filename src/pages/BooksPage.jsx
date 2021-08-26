@@ -6,10 +6,18 @@ import { useLocation } from 'react-router-dom';
 import Area from './../components/Area';
 import BookList from './../components/book/BookList';
 
-
+/**
+ * A function that created to get the url params
+ * @returns url parameters.
+ */
 function useQuery() {
     return new URLSearchParams(useLocation().search);
 }
+
+/**
+ * A function created to return a list of books and output HTML.
+ * @returns HTML output.
+ */
 
 export default function BooksPage() {
     const { t } = useTranslation();

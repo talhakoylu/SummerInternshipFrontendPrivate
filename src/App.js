@@ -17,6 +17,8 @@ import { useTranslation } from "react-i18next";
 import FullWidthLayoutRoute from "./layouts/FullWidthLayout";
 import LayoutWidthSidebarRoute from "./layouts/LayoutWithSidebar";
 import BooksPage from "./pages/BooksPage";
+import localStorageClear from "./plugins/localStorageClear";
+import Footer from "./components/partials/Footer";
 
 library.add(fab, fas, far);
 
@@ -26,6 +28,8 @@ function App() {
   const lang = localStorage.getItem("lang");
   const fetching = useSelector((state) => state.auth.fetching);
 
+  // Checks the token data and preferred language data in this useEffect function.
+  // If user token expired, localStorage will be cleared.
   useEffect(() => {
     (async () => {
       const language = lang || "tr";
@@ -45,7 +49,7 @@ function App() {
             dispatch(setUser(res.data));
           })
           .catch((err) => {
-            localStorage.clear();
+            localStorageClear();
           })
           .finally(() => {});
       }
@@ -73,13 +77,21 @@ function App() {
                   />
                 </div>
               )}
-                  <Switch>
-                    <FullWidthLayoutRoute path="/authors">authors</FullWidthLayoutRoute>
-                    <LayoutWidthSidebarRoute path="/books" component={BooksPage}></LayoutWidthSidebarRoute>
-                    <FullWidthLayoutRoute path="/" component={HomePage}>
-                    </FullWidthLayoutRoute>
-                  </Switch>
+              <Switch>
+                <FullWidthLayoutRoute path="/authors">
+                  authors
+                </FullWidthLayoutRoute>
+                <LayoutWidthSidebarRoute
+                  path="/books"
+                  component={BooksPage}
+                ></LayoutWidthSidebarRoute>
+                <FullWidthLayoutRoute
+                  path="/"
+                  component={HomePage}
+                ></FullWidthLayoutRoute>
+              </Switch>
             </div>
+            <Footer />
           </div>
         </div>
       </Router>

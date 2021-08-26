@@ -5,6 +5,8 @@ export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_LEVELS = "SET_LEVELS";
 export const SET_BOOK_LANGUAGES = "SET_BOOK_LANGUAGES";
 
+//Actions were declared in this file. 
+
 export const setUser = (payload) => {
   return {
     type: SET_USER,

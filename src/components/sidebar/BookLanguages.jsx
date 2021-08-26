@@ -35,7 +35,7 @@ export default function BookLanguages() {
                         <ListGroup variant="flush">
                             {languages.map((language) => {
                                 return (
-                                    <Link to={"/books?language=" + language.id}>
+                                    <Link key={language.language_name} to={"/books?language=" + language.id}>
                                         <ListGroup.Item>
                                             <div className="d-flex justify-content-between">
                                                 <div>

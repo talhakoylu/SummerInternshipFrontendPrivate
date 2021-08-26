@@ -1,5 +1,8 @@
 import ApiService from "../../services/api.service";
 
+/**
+ * Class to define API urls and HTTP requests for user information.
+ */
 class AuthService {
   token = ({ data }) => {
     return ApiService.post("/token/", data);

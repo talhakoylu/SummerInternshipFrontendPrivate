@@ -11,6 +11,13 @@ const initialState = {
   levels: [],
 };
 
+/**
+ * A function created to manage and assign actions in bulk.
+ * @param {*} state waiting for required state.
+ * @param {*} action Retrieves the initialState line to which the payload data will be assigned.
+ * @returns state of giving actions
+ */
+
 export default function authReducer(state = initialState, action) {
   const { payload, type } = action;
 

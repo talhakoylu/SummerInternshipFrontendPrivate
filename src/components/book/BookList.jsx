@@ -48,7 +48,7 @@ export default function BookList({ query }) {
             {
                 books.map((book) => {
                     return (
-                        <Col lg={4} className={"my-3"}>
+                        <Col lg={4} key={book.name} className={"my-3"}>
                             <BookCard book={book} />
                         </Col>
                     )

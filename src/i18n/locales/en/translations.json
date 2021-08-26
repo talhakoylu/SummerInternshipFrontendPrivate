@@ -1,6 +1,8 @@
 {
     "home": "Home Page",
     "loading" : "Loading",
+    "copy_right_text" : "© 2021 Bookido, all rights reserved.",
+    "about_page" : "About Us",
     "book": {
         "books": "Books",
         "language" : "Language",

@@ -5,12 +5,20 @@ import { Link } from 'react-router-dom';
 import { setCategories } from '../../redux/actions/auth.action';
 import { BookService } from "../../redux/services"
 
+
+/**
+ * A function created to return a list of categories and output HTML.
+ * It was designed as a menu that will be located under the navbar area.
+ * @returns HTML output.
+ */
+
 function Categories() {
     const lang = useSelector((state) => state.auth.lang)
     const categories = useSelector((state) => state.auth.categories)
     const dispatch = useDispatch()
     const [fetching, setFetching] = useState(false);
 
+    //create a category item
     const CategoryItem = ({ category }) => {
         return (
             <Link to={"/books?category=" + category.id}>
@@ -32,13 +40,13 @@ function Categories() {
     }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <div className="bg-primary">
+        <div className="section1-bg">
             <Container>
                 <div className="d-flex py-2 pe-1">
                     {fetching ? (<Badge bg={"light"} className={"text-dark m-1"}>...</Badge>) : (
                         categories.length ? categories.map((category) => {
                             return (
-                                <CategoryItem category={category} />
+                                <CategoryItem key={category.slug}  category={category} />
                             )
                         }) : null
                     )}

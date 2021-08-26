@@ -7,6 +7,11 @@ import NavMenu from './../Nav/NavMenu';
 import AccountArea from '../Nav/AccountArea'
 import LanguageDropdown from '../Nav/LanguageDropdown'
 
+/**
+ * A function that using for show the header area. Also this function including logo area, account area, page and category menus.
+ * @returns HTML output
+ */
+
 export default function Header() {
     return (
         <div className="mb-4">

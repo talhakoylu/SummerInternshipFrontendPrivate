@@ -3,14 +3,24 @@ $container-max-widths: (
   md: 720px,
   lg: 960px,
   xl: 1140px,
-  xxl: 1320px
+  xxl: 1320px,
 ) !default;
 $enable-negative-margins: true;
 
 $info: #98c1d9;
 $primary: #003049;
-$warning: #F77F00;
-$secondary: #EAE2B7;
-$danger: #D62828;
+$warning: #f77f00;
+$secondary: #eae2b7;
+$danger: #d62828;
+
+.section1-bg {
+  background: rgb(0, 48, 73);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 48, 73, 1) 0%,
+    rgba(28, 84, 113, 1) 50%,
+    rgba(8, 107, 158, 1) 100%
+  );
+}
 
 @import "bootstrap/bootstrap";
