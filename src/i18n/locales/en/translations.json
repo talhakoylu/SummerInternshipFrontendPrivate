@@ -19,7 +19,19 @@
         "read" : "Read",
         "listen" : "Listen",
         "quiz" : "Quiz",
-        "introduction" : "Introduction"
+        "introduction" : "Introduction",
+        "quiz_modal" : {
+            "questions" : "Questions",
+            "next_question" : "Next Question",
+            "finish_quiz" : "Finish the Quiz",
+            "start_quiz" : "Start the Quiz"
+        },
+        "read_listen_modal" : {
+            "listen_again" : "Listen Again",
+            "stop" : "Stop",
+            "start_listen" : "Start Listening",
+            "start_read" : "Start Reading"
+        }
     },
     "account": {
         "account_management": "Account Management",

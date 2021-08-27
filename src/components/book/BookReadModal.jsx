@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
 import { Button, Row, Col } from "react-bootstrap";
 import { BookService } from "../../redux/services";
-import { useTranslation } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from "../Loading";
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { useBeforeunload } from 'react-beforeunload';
+import { useTranslation } from "react-i18next";
 
 export default function BookReadModal({ book, listen, ...dist }) {
+    const { t } = useTranslation();
     const [errMessage, setErrMessage] = useState(null);
 
     const [page, setPage] = useState(null);
     const [pages, setPages] = useState([]);
     const [fetching, setFetching] = useState(false);
-
-    const [listenButton, setListenButton] = useState(false);
 
     const activePage = pages.length ? pages.find((i, k) => (k + 1) === page) : null
 
@@ -138,13 +137,13 @@ export default function BookReadModal({ book, listen, ...dist }) {
                             <Col lg={6}>
                                 <Button className={"w-100"} variant={"success"} onClick={() => play()}>
                                     <FontAwesomeIcon className={"me-2"} icon={"redo"} />
-                                    Tekrar dinle
+                                    {t("book.read_listen_modal.listen_again")}
                                 </Button>
                             </Col>
                             <Col lg={6}>
                                 <Button className={"w-100"} variant={"danger"} onClick={() => cancel()}>
                                     <FontAwesomeIcon className={"me-2"} icon={"stop-circle"} />
-                                    Durdur
+                                    {t("book.read_listen_modal.stop")}
                                 </Button>
                             </Col>
                         </Row>
@@ -160,7 +159,7 @@ export default function BookReadModal({ book, listen, ...dist }) {
                                 setFetching(false);
                             }, 400)
                         }} size={"lg"}
-                            variant={"success"}>{listen ? "Dinlemeye" : "Okumaya"} başla</Button>
+                            variant={"success"}>{listen ? t("book.read_listen_modal.start_listen") : t("book.read_listen_modal.start_read")}</Button>
                     </div>
                 </div>}
             </Loading>

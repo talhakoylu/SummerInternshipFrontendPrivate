@@ -1,9 +1,8 @@
 import React, {useState} from "react";
 import Modal from "../Modal";
-import {Button, Row, Col, Card} from "react-bootstrap";
+import {Button, Card} from "react-bootstrap";
 import {QuizService} from "../../redux/services";
 import {useTranslation} from 'react-i18next';
-import {useDispatch} from 'react-redux'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Loading from "../Loading";
 import {useSpeechSynthesis} from 'react-speech-kit';
@@ -13,9 +12,6 @@ export default function QuizModal({book, listen, ...dist}) {
     const {t} = useTranslation();
     const [quiz, setQuiz] = useState(false);
     const [errMessage, setErrMessage] = useState(null);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-
 
     const {cancel, speak, voices} = useSpeechSynthesis();
 
@@ -57,7 +53,7 @@ export default function QuizModal({book, listen, ...dist}) {
                     {activeQuestion ? <>
                         {quiz.questions.length ? <div className={"m-n1"}>
                             <div className="d-flex align-items-center">
-                                <Button variant={"primary"} size={"sm"} className={"m-1 py-1 shadow-none"}>Sorular:</Button>
+                                <Button variant={"primary"} size={"sm"} className={"m-1 py-1 shadow-none"}>{t("book.quiz_modal.questions")}:</Button>
                                 {quiz.questions.map((question, k) => {
                                     return (
                                         <Button onClick={() => setActiveQuestion(k+1)} variant={k+1 === activeQuestion ? "primary": "light"} size={"sm"}
@@ -100,12 +96,12 @@ export default function QuizModal({book, listen, ...dist}) {
                         </div>
                         {selectedAnswers[question.id] ? (
                             <div className={"mt-2"}>
-                                {quiz.questions.length > activeQuestion ? <Button className={"w-100"} variant="warning" onClick={() => setActiveQuestion(activeQuestion + 1)}>Sonraki soru</Button>: <Button className={"w-100"} variant={"success"}>Bitir</Button>}
+                                {quiz.questions.length > activeQuestion ? <Button className={"w-100"} variant="warning" onClick={() => setActiveQuestion(activeQuestion + 1)}>{t("book.quiz_modal.next_question")}</Button>: <Button className={"w-100"} variant={"success"}>{t("book.quiz_modal.finish_quiz")}</Button>}
                             </div>
                         ): null}
                     </> : (
                         <div className={"position-relative bg-dark "}>
-                            <img src={book.cover_image} className={"w-100"} style={{opacity: 0.25}}/>
+                            <img src={book.cover_image} className={"w-100"} style={{opacity: 0.25}} alt=""/>
                             <div
                                 className="top-0 left-0 fw-bold position-absolute w-100 h-100 justify-content-center align-items-center d-flex h4 mb-0">
                                 <Button onClick={() => {
@@ -114,7 +110,7 @@ export default function QuizModal({book, listen, ...dist}) {
                                     setTimeout(function () {
                                         setFetching(false);
                                     }, 400)
-                                }} size={"lg"} variant={"success"}>Başla</Button>
+                                }} size={"lg"} variant={"success"}>{t("book.quiz_modal.start_quiz")}</Button>
                             </div>
                         </div>
                     )}

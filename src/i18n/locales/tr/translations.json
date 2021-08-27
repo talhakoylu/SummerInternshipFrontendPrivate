@@ -19,7 +19,19 @@
         "read" : "Oku",
         "listen" : "Dinle",
         "quiz" : "Sınav",
-        "introduction": "Tanıtım"
+        "introduction": "Tanıtım",
+        "quiz_modal" : {
+            "questions" : "Sorular",
+            "next_question" : "Sonraki Soru",
+            "finish_quiz" : "Sınavı Bitir",
+            "start_quiz" : "Sınava Başla"
+        },
+        "read_listen_modal" : {
+            "listen_again" : "Tekrar Dinle",
+            "stop" : "Durdur",
+            "start_listen" : "Dinlemeye Başla",
+            "start_read" : "Okumaya Başla"
+        }
     },
     "account": {
         "account_management": "Hesap Yönetimi",
