@@ -19,6 +19,7 @@ import LayoutWidthSidebarRoute from "./layouts/LayoutWithSidebar";
 import BooksPage from "./pages/BooksPage";
 import localStorageClear from "./plugins/localStorageClear";
 import Footer from "./components/partials/Footer";
+import BookDetail from './pages/BookDetail';
 
 library.add(fab, fas, far);
 
@@ -81,14 +82,9 @@ function App() {
                 <FullWidthLayoutRoute path="/authors">
                   authors
                 </FullWidthLayoutRoute>
-                <LayoutWidthSidebarRoute
-                  path="/books"
-                  component={BooksPage}
-                ></LayoutWidthSidebarRoute>
-                <FullWidthLayoutRoute
-                  path="/"
-                  component={HomePage}
-                ></FullWidthLayoutRoute>
+                <LayoutWidthSidebarRoute path="/books" component={BooksPage}></LayoutWidthSidebarRoute>
+                <FullWidthLayoutRoute path="/book/:slug" component={BookDetail} ></FullWidthLayoutRoute>
+                <FullWidthLayoutRoute path="/" component={HomePage}></FullWidthLayoutRoute>
               </Switch>
             </div>
             <Footer />

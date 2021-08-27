@@ -9,12 +9,17 @@
         "level" : "Level",
         "category" : "Category",
         "authors": "Authors",
+        "author" : "Author",
         "levels" : "Book Levels",
         "levels_not_found" : "Level not found.",
         "languages" : "Book Languages",
         "language_not_found" : "Language not found.",
         "book_not_found" : "Book not found.",
-        "details" : "Details"
+        "details" : "Details",
+        "read" : "Read",
+        "listen" : "Listen",
+        "quiz" : "Quiz",
+        "introduction" : "Introduction"
     },
     "account": {
         "account_management": "Account Management",
@@ -89,5 +94,9 @@
                 "went_wrong_content": "Please connect us!"
             }
         }
+    },
+    "errors" : {
+        "login_required" : "You need to login.",
+        "login_token_expired" : "Since your session has expired, you have to log out and log in again."
     }
 }

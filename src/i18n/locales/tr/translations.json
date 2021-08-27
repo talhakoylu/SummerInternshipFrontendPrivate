@@ -9,12 +9,17 @@
         "level" : "Seviye",
         "category" : "Kategori",
         "authors": "Yazarlar",
+        "author": "Yazar",
         "levels" : "Kitap Seviyeleri",
         "levels_not_found" : "Seviye bulunamadı.",
         "languages" : "Kitap Dilleri",
         "language_not_found" : "Dil bulunamadı.",
         "book_not_found" : "Kitap bulunamadı.",
-        "details" : "Detaylar"
+        "details" : "Detaylar",
+        "read" : "Oku",
+        "listen" : "Dinle",
+        "quiz" : "Sınav",
+        "introduction": "Tanıtım"
     },
     "account": {
         "account_management": "Hesap Yönetimi",
@@ -89,5 +94,9 @@
                 "went_wrong_content": "Lütfen bizimle iletişime geçin!"
             }
         }
+    },
+    "errors" : {
+        "login_required" : "Giriş yapmanız gerekiyor.",
+        "login_token_expired" : "Oturum süreniz dolduğu için çıkış yapıp tekrar giriş yapmanız gerekiyor."
     }
 }

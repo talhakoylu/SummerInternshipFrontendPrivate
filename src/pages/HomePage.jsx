@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 export default function HomePage() {
     return (
         <>
-            <section id="introduction" class="section1-bg mt-n4">
+            <section id="introduction" className="section1-bg mt-n4">
                 <Container>
-                    <div class="row gx-5 align-items-center justify-content-center">
+                    <div className="row gx-5 align-items-center justify-content-center">
                         <Col lg="8" xl="7" xxl="6">
                             <div className="my-5 text-center text-xl-start">
                                 <h1 className="display-5 fw-bolder text-white mb-2">İstediğin türde kitabı seç, özgürce oku</h1>
@@ -18,14 +18,14 @@ export default function HomePage() {
                                 </div>
                             </div>
                         </Col>
-                        <Col xl="5" xxl="6" className="d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src={"/chilling.svg"} alt="..." /></Col>
+                        <Col xl="5" xxl="6" className="d-none d-xl-block text-center"><img className="img-fluid rounded-3 my-5" src={"/chilling.svg"} alt="..." /></Col>
                     </div>
                 </Container>
             </section>
             <section id="information" >
                 <Container>
-                    <div class="row gx-5 align-items-center justify-content-center">
-                        <Col xl="5" xxl="6" className="d-none d-xl-block text-center"><img class="img-fluid rounded-3 my-5" src="/book-info.svg" alt="..." /></Col>
+                    <div className="row gx-5 align-items-center justify-content-center">
+                        <Col xl="5" xxl="6" className="d-none d-xl-block text-center"><img className="img-fluid rounded-3 my-5" src="/book-info.svg" alt="..." /></Col>
                         <Col lg="8" xl="7" xxl="6">
                             <div className="my-5 text-center text-xl-start">
                                 <h1 className="display-5 fw-bolder mb-2">Eğitici ve Eğlenceli Birçok Seçenek!</h1>

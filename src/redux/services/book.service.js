@@ -21,6 +21,12 @@ class BookService {
         (query?.language ? "language=" + query?.language + "&" : "")
     );
   };
+  pagesByBook = (id) => {
+    return ApiService.get("/book/book-pages-by-book-id/" + id);
+  };
+  detail = ({ slug }) => {
+    return ApiService.get("/book/book-detail/" + slug);
+  };
 }
 
 const authService = new BookService();

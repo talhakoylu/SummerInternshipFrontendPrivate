@@ -10,11 +10,11 @@ import { NavLink } from "react-router-dom";
 export default function Footer() {
     const { t } = useTranslation();
     return (
-        <footer class="py-3 my-4 border-top">
+        <footer className="py-3 my-4 border-top">
             <Container>
                 <Row className="flex-wrap justify-content-between align-items-center ">
                     <Col lg="4">
-                        <p class="mb-0 text-muted">{t("copy_right_text")}</p>
+                        <p className="mb-0 text-muted">{t("copy_right_text")}</p>
                     </Col>
                     <Col lg="4" className="d-flex justify-content-center">
                         <Link to="/">
