@@ -24,7 +24,8 @@
             "questions" : "Questions",
             "next_question" : "Next Question",
             "finish_quiz" : "Finish the Quiz",
-            "start_quiz" : "Start the Quiz"
+            "start_quiz" : "Start the Quiz",
+            "answers_saved" : "Your answers have been saved, thank you."
         },
         "read_listen_modal" : {
             "listen_again" : "Listen Again",

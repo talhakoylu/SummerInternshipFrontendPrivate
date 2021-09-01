@@ -6,10 +6,10 @@ import RegisterModal from './RegisterModal';
 import notification from './../../../plugins/notification';
 import { AuthService } from '../../../redux/services';
 import { useDispatch } from 'react-redux';
-import httpService from '../../../services/http.service';
 import { setUser } from '../../../redux/actions/auth.action';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
+import TokenService from '../../../services/token.service';
 
 export default function LoginModal({ ...dist }) {
     const { t } = useTranslation();
@@ -32,13 +32,12 @@ export default function LoginModal({ ...dist }) {
             }
         })
             .then(res => {
-                localStorage.setItem('token', JSON.stringify(res.data))
-                httpService.client.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access;
+                TokenService.setToken(res.data);
 
                 AuthService.me()
                     .then(res => {
                         dispatch(setUser(res.data));
-                        localStorage.setItem('user', JSON.stringify(res.data))
+                        TokenService.setUser(res.data);
                         dist.handleClose();
                         notification.add('success', t('services.auth.token.success_title'), t('services.auth.token.success_content'))
                     })
@@ -64,7 +63,6 @@ export default function LoginModal({ ...dist }) {
                     initialValues={{
                         password: '',
                         username: '',
-                        rememberMe: false
                     }}
                     validationSchema={yup.object().shape({
                         username: yup.string()
@@ -95,12 +93,8 @@ export default function LoginModal({ ...dist }) {
                                 }} />
                                 <ErrorMessage name="password" component="div" className="invalid-feedback" />
                             </div>
-                            <div className="form-group form-check mb-2">
-                                <Field type="checkbox" name="rememberMe" className={'form-check-input'} />
-                                <label htmlFor="rememberMe" className="form-check-label">{t("account.remember_me")}</label>
-                            </div>
 
-                            <div className="d-grid gap-2 mt-2">
+                            <div className="d-grid gap-2 mt-4">
                                 <button type="submit" disabled={fetching ? true : false} className="btn btn-primary block">{t("account.login")}</button>
                             </div>
                         </Form>

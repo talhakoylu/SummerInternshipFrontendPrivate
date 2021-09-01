@@ -1,5 +1,6 @@
 export const SET_USER = "SET_USER";
 export const SET_FETCHING = "SET_FETCHING";
+export const SET_LOADING = 'SET_LOADING';
 export const SET_LANGUAGE = "SET_LANGUAGE";
 export const SET_CATEGORIES = "SET_CATEGORIES";
 export const SET_LEVELS = "SET_LEVELS";
@@ -20,6 +21,14 @@ export const setFetching = (payload) => {
     payload,
   };
 };
+
+export const setLoading = payload => {
+  return {
+    type: SET_LOADING,
+    payload
+  };
+};
+
 
 export const setLanguage = (payload) => {
   return {

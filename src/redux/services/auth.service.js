@@ -7,6 +7,9 @@ class AuthService {
   token = ({ data }) => {
     return ApiService.post("/token/", data);
   };
+  refreshToken = ({ data }) => {
+    return ApiService.post("/token/refresh", data);
+  };
   register = ({ data }) => {
     return ApiService.post("/account/register", data);
   };

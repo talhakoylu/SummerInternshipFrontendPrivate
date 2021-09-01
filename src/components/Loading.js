@@ -10,7 +10,7 @@ export default function Loading({children, error, fetching, size}) {
             style={{zIndex: 20}}>
             <img className={"d-inline-block"} src={"/fetching.svg"} width={size && 100}/>
         </div> : (
-            error ? <Alert variant={"danger"}>{error.data.code ? t("errors.login_token_expired") : error.data.detail}</Alert>: null
+            error ? <Alert variant={"danger"}>{error.data.code ? t("errors.login_token_expired") : error.data.detail || error.data.error}</Alert>: null
         )}
         <div style={{display: fetching || error && "none"}}>{children}</div>
     </div>;

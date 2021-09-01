@@ -24,7 +24,8 @@
             "questions" : "Sorular",
             "next_question" : "Sonraki Soru",
             "finish_quiz" : "Sınavı Bitir",
-            "start_quiz" : "Sınava Başla"
+            "start_quiz" : "Sınava Başla",
+            "answers_saved" : "Cevaplarınız kaydedildi, teşekkür ederiz."
         },
         "read_listen_modal" : {
             "listen_again" : "Tekrar Dinle",
