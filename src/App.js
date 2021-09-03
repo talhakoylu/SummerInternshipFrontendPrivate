@@ -59,7 +59,6 @@ function App() {
         setIsReady(true);
       }
     }
-
     init();
   }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
