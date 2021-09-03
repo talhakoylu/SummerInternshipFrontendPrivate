@@ -5,15 +5,12 @@ import {QuizService} from "../../redux/services";
 import {useTranslation} from 'react-i18next';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import Loading from "../Loading";
-import {useSpeechSynthesis} from 'react-speech-kit';
 import {useBeforeunload} from 'react-beforeunload';
 
-export default function QuizModal({book, listen, ...dist}) {
+export default function QuizModal({book, listen, cancel, speak, voices, ...dist}) {
     const {t} = useTranslation();
     const [quiz, setQuiz] = useState(false);
     const [errMessage, setErrMessage] = useState(null);
-
-    const {cancel, speak, voices} = useSpeechSynthesis();
 
     useBeforeunload((event) => {
         cancel();
@@ -132,7 +129,7 @@ export default function QuizModal({book, listen, ...dist}) {
                             ) : null}
                         </> : (
                             <div className={"position-relative bg-dark "}>
-                                <img src={book.cover_image} className={"w-100"} style={{opacity: 0.25}}/>
+                                <img src={book.cover_image} className={"w-100"} alt="" style={{opacity: 0.25}}/>
                                 <div
                                     className="top-0 left-0 fw-bold position-absolute w-100 h-100 justify-content-center align-items-center d-flex h4 mb-0">
                                     <Button onClick={() => {

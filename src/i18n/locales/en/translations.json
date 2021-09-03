@@ -9,7 +9,6 @@
         "level" : "Level",
         "category" : "Category",
         "authors": "Authors",
-        "author" : "Author",
         "levels" : "Book Levels",
         "levels_not_found" : "Level not found.",
         "languages" : "Book Languages",
@@ -32,6 +31,16 @@
             "stop" : "Stop",
             "start_listen" : "Start Listening",
             "start_read" : "Start Reading"
+        },
+        "author" : {
+            "author" : "Author",
+            "authors" : "Authors",
+            "name" : "Name",
+            "surname" : "Surname",
+            "biography" : "Biography",
+            "authors_books" : "Books of the Author",
+            "author_not_found" : "Author not found!",
+            "details" : "Details"
         }
     },
     "account": {

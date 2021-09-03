@@ -11,6 +11,7 @@ import BookImage from "../components/book/BookImage";
 import { useTranslation } from "react-i18next";
 import BookReadModal from './../components/book/BookReadModal';
 import QuizModal from './../components/book/QuizModal';
+import { useSpeechSynthesis } from 'react-speech-kit';
 
 
 export default function BookDetail() {
@@ -20,6 +21,9 @@ export default function BookDetail() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.auth.user)
     const lang = useSelector((state) => state.auth.lang)
+
+    const {speak, cancel, voices} = useSpeechSynthesis();
+
     useEffect(() => {
         dispatch(setFetching(true));
         BookService.detail({ slug: slug })
@@ -46,7 +50,7 @@ export default function BookDetail() {
     return (
         <Container>
             {book.id ? <Area title={book.name}>
-                <BookReadModal book={book} show={readModalShow} handleClose={readModalHandleClose} listen={listen} />
+                <BookReadModal cancel={cancel} speak={speak} voices={voices} book={book} show={readModalShow} handleClose={readModalHandleClose} listen={listen} />
                 <div className={"d-flex"}>
                     <div style={{ width: 271.98 }} className={"me-3 mb-3"}>
                         <BookImage book={book} />
@@ -55,7 +59,7 @@ export default function BookDetail() {
                         <div style={{ flex: 1 }}>
                             {book.author ? <Card className={"p-3 mb-2"}>
                                 <div className={"d-flex align-items-center"}>
-                                    <b className={"pe-1"}>{t("book.author")}:</b>
+                                    <b className={"pe-1"}>{t("book.author.author")}:</b>
                                     <Link to={"/author/" + book.author.slug} className={"d-flex align-items-center"}>
                                         <img style={{ width: 28, height: 28, borderRadius: "100%" }} src={book.author.photo} alt={book.author.first_name + " " + book.author.last_name}
                                             className={"border me-1"} />
@@ -127,7 +131,7 @@ export default function BookDetail() {
                         <Card.Body>{book.description}</Card.Body>
                     </Card>
                 </div>
-                <QuizModal book={book} show={quizModalShow} handleClose={quizModalHandleClose} />
+                <QuizModal cancel={cancel} speak={speak} voices={voices} book={book} show={quizModalShow} handleClose={quizModalHandleClose} backdrop="static" />
             </Area> : null}
         </Container>
     )

@@ -9,7 +9,6 @@
         "level" : "Seviye",
         "category" : "Kategori",
         "authors": "Yazarlar",
-        "author": "Yazar",
         "levels" : "Kitap Seviyeleri",
         "levels_not_found" : "Seviye bulunamadı.",
         "languages" : "Kitap Dilleri",
@@ -32,6 +31,16 @@
             "stop" : "Durdur",
             "start_listen" : "Dinlemeye Başla",
             "start_read" : "Okumaya Başla"
+        },
+        "author" : {
+            "author" : "Yazar",
+            "authors" : "Yazarlar",
+            "name" : "İsim",
+            "surname" : "Soyisim",
+            "biography" : "Biyografi",
+            "authors_books" : "Yazarın Kitapları",
+            "author_not_found" : "Yazar bulunamadı!",
+            "details" : "Detaylar"
         }
     },
     "account": {

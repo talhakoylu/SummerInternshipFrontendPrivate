@@ -27,6 +27,12 @@ class BookService {
   detail = ({ slug }) => {
     return ApiService.get("/book/book-detail/" + slug);
   };
+  authorList = () => {
+    return ApiService.get("/book/author-list");
+  };
+  authorDetail = ({slug}) => {
+    return ApiService.get("/book/author-detail/" + slug);
+  };
 }
 
 const authService = new BookService();

@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../Modal";
 import { Button, Row, Col } from "react-bootstrap";
-import { BookService } from "../../redux/services";
+import { BookService, ReportService } from "../../redux/services";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from "../Loading";
-import { useSpeechSynthesis } from 'react-speech-kit';
 import { useBeforeunload } from 'react-beforeunload';
 import { useTranslation } from "react-i18next";
+import notification from './../../plugins/notification';
 
-export default function BookReadModal({ book, listen, ...dist }) {
+export default function BookReadModal({ book, listen, cancel, speak, voices, ...dist }) {
     const { t } = useTranslation();
     const [errMessage, setErrMessage] = useState(null);
 
     const [page, setPage] = useState(null);
     const [pages, setPages] = useState([]);
     const [fetching, setFetching] = useState(false);
+    const [isReadingRequest, setIsReadingRequest] = useState(false);
 
     const activePage = pages.length ? pages.find((i, k) => (k + 1) === page) : null
 
@@ -22,8 +23,6 @@ export default function BookReadModal({ book, listen, ...dist }) {
     const isNextPageDisabled = pages.length > page ? false : true;
 
     const isInside = activePage && activePage.text_inside_image;
-
-    const { speak, cancel, voices } = useSpeechSynthesis();
 
 
     const ActivePageContent = () => {
@@ -85,6 +84,21 @@ export default function BookReadModal({ book, listen, ...dist }) {
         cancel();
     });
 
+    const readingHistoryAddRecord = (isFinished = false) => {
+        setFetching(true);
+        ReportService.readingHistoryAdd({
+            data: {
+                book: book.id,
+                is_finished: isFinished,
+            }
+        })
+            .then()
+            .catch()
+            .finally(() => {
+                setFetching(false);
+            });
+    }
+
     return (
         <Modal size={book && (!page ? "sm" : "lg")} onExit={() => cancel()} onShow={() => {
             cancel();
@@ -130,6 +144,10 @@ export default function BookReadModal({ book, listen, ...dist }) {
                                 setTimeout(function () {
                                     setFetching(false);
                                 }, 400)
+                                if(pages.length === page+1 && !isReadingRequest){
+                                    setIsReadingRequest(true);
+                                    readingHistoryAddRecord(true);
+                                }
                             }}><FontAwesomeIcon icon={"chevron-right"} /></Button>
                     </div>
                     {listen ? <div className="position-relative z-50">
@@ -158,6 +176,7 @@ export default function BookReadModal({ book, listen, ...dist }) {
                             setTimeout(function () {
                                 setFetching(false);
                             }, 400)
+                            readingHistoryAddRecord();
                         }} size={"lg"}
                             variant={"success"}>{listen ? t("book.read_listen_modal.start_listen") : t("book.read_listen_modal.start_read")}</Button>
                     </div>

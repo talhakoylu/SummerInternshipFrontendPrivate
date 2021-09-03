@@ -20,6 +20,8 @@ import BooksPage from "./pages/BooksPage";
 import localStorageClear from "./plugins/localStorageClear";
 import Footer from "./components/partials/Footer";
 import BookDetail from "./pages/BookDetail";
+import AuthorsPage from "./pages/AuthorsPage";
+import AuthorDetailPage from './pages/AuthorDetailPage';
 
 library.add(fab, fas, far);
 
@@ -27,9 +29,7 @@ function App() {
   const dispatch = useDispatch();
   const { i18n } = useTranslation();
   const lang = localStorage.getItem("lang");
-  const fetching = useSelector((state) => state.auth.fetching);
-  const [isReady, setIsReady] = useState(false)
-
+  const [isReady, setIsReady] = useState(false);
 
   // Checks the token data and preferred language data in this useEffect function.
   // If user token expired, localStorage will be cleared.
@@ -63,14 +63,16 @@ function App() {
     init();
   }, [lang]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return (
+  const loading = useSelector((state) => state.auth.loading)
+
+  return isReady && (
     <div className="App">
       <Router>
         <div>
           <div className={"min-vh-100 d-flex flex-column"}>
             <Header></Header>
             <div style={{ flex: 1 }} className={"position-relative"}>
-              {fetching && (
+              {loading && (
                 <div
                   className={
                     "position-absolute bg-white w-100 h-100 d-flex justify-content-center align-items-center"
@@ -85,21 +87,11 @@ function App() {
                 </div>
               )}
               <Switch>
-                <FullWidthLayoutRoute path="/authors">
-                  authors
-                </FullWidthLayoutRoute>
-                <LayoutWidthSidebarRoute
-                  path="/books"
-                  component={BooksPage}
-                ></LayoutWidthSidebarRoute>
-                <FullWidthLayoutRoute
-                  path="/book/:slug"
-                  component={BookDetail}
-                ></FullWidthLayoutRoute>
-                <FullWidthLayoutRoute
-                  path="/"
-                  component={HomePage}
-                ></FullWidthLayoutRoute>
+                <LayoutWidthSidebarRoute path="/books" component={BooksPage}/>
+                <FullWidthLayoutRoute path="/book/:slug" component={BookDetail} />
+                <FullWidthLayoutRoute path="/authors" component={AuthorsPage} />
+                <FullWidthLayoutRoute path="/author/:slug" component={AuthorDetailPage} />
+                <FullWidthLayoutRoute path="/" component={HomePage} />
               </Switch>
             </div>
             <Footer />
