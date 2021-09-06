@@ -22,6 +22,7 @@ import Footer from "./components/partials/Footer";
 import BookDetail from "./pages/BookDetail";
 import AuthorsPage from "./pages/AuthorsPage";
 import AuthorDetailPage from './pages/AuthorDetailPage';
+import ProfilePage from './pages/ProfilePage';
 
 library.add(fab, fas, far);
 
@@ -90,6 +91,7 @@ function App() {
                 <FullWidthLayoutRoute path="/book/:slug" component={BookDetail} />
                 <FullWidthLayoutRoute path="/authors" component={AuthorsPage} />
                 <FullWidthLayoutRoute path="/author/:slug" component={AuthorDetailPage} />
+                <FullWidthLayoutRoute path="/profile" component={ProfilePage} />
                 <FullWidthLayoutRoute path="/" component={HomePage} />
               </Switch>
             </div>

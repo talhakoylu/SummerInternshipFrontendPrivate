@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Loading from "../Loading";
 import { useBeforeunload } from 'react-beforeunload';
 import { useTranslation } from "react-i18next";
-import notification from './../../plugins/notification';
 
 export default function BookReadModal({ book, listen, cancel, speak, voices, ...dist }) {
     const { t } = useTranslation();

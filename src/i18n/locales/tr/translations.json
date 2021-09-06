@@ -64,6 +64,7 @@
         "child_student": "Çocuk / Öğrenci",
         "parent": "Veli",
         "instructor": "Eğitmen",
+        "profile_page" : "Profil Sayfası",
         "register_modal": {
             "first_name": "İsim",
             "last_name": "Soyisim",
@@ -120,5 +121,32 @@
     "errors" : {
         "login_required" : "Giriş yapmanız gerekiyor.",
         "login_token_expired" : "Oturum süreniz dolduğu için çıkış yapıp tekrar giriş yapmanız gerekiyor."
+    },
+    "profile_update": {
+        "update_success" : "Profil başarıyla güncellendi.",
+        "error": "Hata",
+        "my_profile" : "Profilim",
+        "user_type" : "Hesap Türü",
+        "name" : "İsim",
+        "surname" : "Soyisim",
+        "email" : "E-posta",
+        "identity_number" : "Kimlik Numarası",
+        "gender" : "Cinsiyet",
+        "gender_male" : "Erkek",
+        "gender_female" : "Kadın",
+        "gender_other" : "Diğer / Belirtmek istemiyorum",
+        "birth_date" : "Doğum Tarihi",
+        "country" : "Ülke",
+        "country_select" : "Ülke Seçiniz",
+        "city" : "Şehir",
+        "city_select" : "Şehir Seçiniz",
+        "district" : "Bölge",
+        "district_select" : "Bölge Seçiniz",
+        "hobbies" : "Hobiler",
+        "profession" : "Meslek",
+        "school" : "Okul",
+        "school_select" : "Okul Seçiniz",
+        "branch" : "Branş",
+        "update" : "Güncelle"
     }
 }

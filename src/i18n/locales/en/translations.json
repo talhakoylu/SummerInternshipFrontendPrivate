@@ -64,6 +64,7 @@
         "child_student": "Child / Student",
         "parent": "Parent",
         "instructor": "Instructor",
+        "profile_page" : "Profile Page",
         "register_modal": {
             "first_name": "First Name",
             "last_name": "Last Name",
@@ -120,5 +121,32 @@
     "errors" : {
         "login_required" : "You need to login.",
         "login_token_expired" : "Since your session has expired, you have to log out and log in again."
+    },
+    "profile_update": {
+        "update_success" : "Profile updated successfully.",
+        "error": "Error",
+        "my_profile" : "My Profile",
+        "user_type" : "Account Type",
+        "name" : "Name",
+        "surname" : "Surname",
+        "email" : "Email",
+        "identity_number" : "Identity Number",
+        "gender" : "Gender",
+        "gender_male" : "Male",
+        "gender_female" : "Female",
+        "gender_other" : "Other / Don't want to say",
+        "birth_date" : "Birth Date",
+        "country" : "Country",
+        "country_select" : "Select a country",
+        "city" : "City",
+        "city_select" : "Select a city",
+        "district" : "District",
+        "district_select" : "Select a district",
+        "hobbies" : "Hobbies",
+        "profession" : "Profession",
+        "school" : "School",
+        "school_select" : "Select a school",
+        "branch" : "Branch",
+        "update" : "Update"
     }
 }

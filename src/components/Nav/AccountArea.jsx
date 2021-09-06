@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../../redux/actions/auth.action';
 import notification from './../../plugins/notification';
 import localStorageClear from '../../plugins/localStorageClear';
+import { Link } from 'react-router-dom';
 
 export default function AccountArea() {
     const { t } = useTranslation();
@@ -24,6 +25,7 @@ export default function AccountArea() {
                 {t("account.account_management")}
             </Button> :
                 <DropdownButton variant = "secondary" title={t("account.welcome") + ", " + user.username}>
+                    {user.user_type !== 1 ? <Dropdown.Item as={Link} to = "/profile">{t("account.profile_page")}</Dropdown.Item> : null}
                     <Dropdown.Item onClick={() => {
                         dispatch(setUser(null));
                         localStorageClear();
