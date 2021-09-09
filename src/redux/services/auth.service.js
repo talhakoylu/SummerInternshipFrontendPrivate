@@ -34,6 +34,21 @@ class AuthService {
   getInstructorProfile = () => {
     return ApiService.get("/account/instructor-profile-update");
   };
+  updatePassword = (payload) => {
+    return ApiService.patch("/account/update-password", payload);
+  };
+  childList = (payload) => {
+    return ApiService.get("/account/child-list-by-parent", payload);
+  };
+  addChildRecord = (payload) => {
+    return ApiService.post("/account/add-child-record", payload);
+  };
+  getChildByIdentity = (identityNumber) => {
+    return ApiService.get("/account/get-child-by-identity/" + identityNumber);
+  };
+  destroyChildRecord = (child) => {
+    return ApiService.delete("/account/destroy-child-record/" + child);
+  };
 }
 
 const authService = new AuthService();

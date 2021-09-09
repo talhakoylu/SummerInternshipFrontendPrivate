@@ -33,6 +33,12 @@ class BookService {
   authorDetail = ({slug}) => {
     return ApiService.get("/book/author-detail/" + slug);
   };
+  readingHistoryListByChild = () => {
+    return ApiService.get("/book/reading-history-list-by-child");
+  };
+  readingHistoryList = (child) => {
+    return ApiService.get("/book/reading-history-list/" + child);
+  };
 }
 
 const authService = new BookService();

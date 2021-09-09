@@ -5,6 +5,7 @@ import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import notification from '../../../plugins/notification';
 import { AuthService } from '../../../redux/services';
+import { Button } from 'react-bootstrap';
 
 export default function RegisterModal({ ...dist }) {
     const today = new Date();
@@ -220,7 +221,7 @@ export default function RegisterModal({ ...dist }) {
                                 <ErrorMessage name="acceptTerms" component="div" className="invalid-feedback" />
                             </div>
                             <div className="d-grid gap-2 mt-2">
-                                <button type="submit" disabled={fetching ? true : false} className="btn btn-warning block">{t("account.register")}</button>
+                                <Button type="submit" disabled={fetching ? true : false} className="btn btn-warning block">{t("account.register")}</Button>
                             </div>
                         </Form>
                     )}

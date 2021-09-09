@@ -95,7 +95,7 @@ export default function LoginModal({ ...dist }) {
                             </div>
 
                             <div className="d-grid gap-2 mt-4">
-                                <button type="submit" disabled={fetching ? true : false} className="btn btn-primary block">{t("account.login")}</button>
+                                <Button type="submit" disabled={fetching ? true : false} className="btn btn-primary block">{t("account.login")}</Button>
                             </div>
                         </Form>
                     )}

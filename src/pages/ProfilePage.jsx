@@ -50,7 +50,6 @@ export default function ProfilePage() {
     }
 
     const getDistricts = (country) => {
-        console.log(country)
         return CountryService.detail(country)
     }
 
@@ -158,7 +157,7 @@ export default function ProfilePage() {
         } else if (auth.user?.user_type === 2) {
             AuthService.childProfileUpdate(user)
                 .then(() => {
-                    notification.add('success', '', t('profile_update.update_success'))
+                    notification.add('success', '', t('account.profile_update.update_success'))
                     if (!user?.[userType].city) {
                         onChange({
                             target: {
@@ -172,7 +171,7 @@ export default function ProfilePage() {
                     for (var key in err.response.data) {
                         if (key !== "status_code") {
                             err.response.data[key].forEach(element => {
-                                notification.add('danger', t('profile_update.error'), element)
+                                notification.add('danger', t('account.profile_update.error'), element)
                             });
                         }
                     }
@@ -184,13 +183,13 @@ export default function ProfilePage() {
         } else if (auth.user?.user_type === 3) {
             AuthService.parentProfileUpdate(user)
                 .then(() => {
-                    notification.add('success', '', t('profile_update.update_success'));
+                    notification.add('success', '', t('account.profile_update.update_success'));
                 })
                 .catch((err) => {
                     for (var key in err.response.data) {
                         if (key !== "status_code") {
                             err.response.data[key].forEach(element => {
-                                notification.add('danger', t('profile_update.error'), element)
+                                notification.add('danger', t('account.profile_update.error'), element)
                             });
                         }
                     }
@@ -202,13 +201,13 @@ export default function ProfilePage() {
         } else if (auth.user?.user_type === 4) {
             AuthService.instructorProfileUpdate(user)
                 .then(() => {
-                    notification.add('success', '', t('profile_update.update_success'))
+                    notification.add('success', '', t('account.profile_update.update_success'))
                 })
                 .catch((err) => {
                     for (var key in err.response.data) {
                         if (key !== "status_code") {
                             err.response.data[key].forEach(element => {
-                                notification.add('danger', t('profile_update.error'), element)
+                                notification.add('danger', t('account.profile_update.error'), element)
                             });
                         }
                     }
@@ -222,51 +221,51 @@ export default function ProfilePage() {
 
     return !auth.user || auth.user.user_type === 1 ? (<Redirect to="/"></Redirect>) : isReady && auth.user && (
         <Container>
-            <Area title={t('profile_update.my_profile')}>
+            <Area title={t('account.profile_update.my_profile')}>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3">
                         <Form.Label></Form.Label>
-                        <Button>{t('profile_update.user_type')}: {auth.user?.user_type_value}</Button>
+                        <Button>{t('account.profile_update.user_type')}: {auth.user?.user_type_value}</Button>
                     </Form.Group>
                     <Row>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.name')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.name')}</Form.Label>
                                 <Form.Control type="text" name={"first_name"} value={user.first_name} onChange={onChange} />
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.surname')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.surname')}</Form.Label>
                                 <Form.Control type="text" name={"last_name"} value={user.last_name} onChange={onChange} />
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.email')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.email')}</Form.Label>
                                 <Form.Control type="email" name={"email"} value={user.email} onChange={onChange} />
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.identity_number')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.identity_number')}</Form.Label>
                                 <Form.Control type="text" name={"identity_number"} value={user.identity_number}
                                     onChange={onChange} />
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.gender')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.gender')}</Form.Label>
                                 <Form.Select name={"gender"} defaultValue={auth.user.gender} onChange={onChange}>
-                                    <option value={1}>{t('profile_update.gender_male')}</option>
-                                    <option value={2}>{t('profile_update.gender_female')}</option>
-                                    <option value={3}>{t('profile_update.gender_other')}</option>
+                                    <option value={1}>{t('account.profile_update.gender_male')}</option>
+                                    <option value={2}>{t('account.profile_update.gender_female')}</option>
+                                    <option value={3}>{t('account.profile_update.gender_other')}</option>
                                 </Form.Select>
                             </Form.Group>
                         </Col>
                         <Col lg={6}>
                             <Form.Group className="mb-3">
-                                <Form.Label>{t('profile_update.birth_date')}</Form.Label>
+                                <Form.Label>{t('account.profile_update.birth_date')}</Form.Label>
                                 <Form.Control type="date" name={"birth_date"} value={user.birth_date} onChange={onChange} />
                             </Form.Group>
                         </Col>
@@ -274,14 +273,14 @@ export default function ProfilePage() {
                             <>
                                 <Col lg={4}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{t('profile_update.country')}</Form.Label>
+                                        <Form.Label>{t('account.profile_update.country')}</Form.Label>
                                         <Form.Select name={userType + ".country"} value={user?.[userType]?.country}
                                             defaultValue={user?.[userType]?.country || ""}
                                             onChange={onChange}>
-                                            <option value={""}>{t('profile_update.country_select')}</option>
+                                            <option value={""}>{t('account.profile_update.country_select')}</option>
                                             {countries.length ? countries.map((country) => {
                                                 return (
-                                                    <option value={country.code}>{country.name}</option>
+                                                    <option value={country.code} key={country.code}>{country.name}</option>
                                                 )
                                             }) : null}
                                         </Form.Select>
@@ -289,14 +288,14 @@ export default function ProfilePage() {
                                 </Col>
                                 <Col lg={4}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{t('profile_update.district')}</Form.Label>
+                                        <Form.Label>{t('account.profile_update.district')}</Form.Label>
                                         <Form.Select name={userType + ".district"} value={user?.[userType]?.district}
                                             defaultValue={user?.[userType]?.district || ""}
                                             onChange={onChange}>
-                                            <option value={""}>{t('profile_update.district_select')}</option>
+                                            <option value={""}>{t('account.profile_update.district_select')}</option>
                                             {districts.length ? districts.map((district) => {
                                                 return (
-                                                    <option value={district.id}>{district.name}</option>
+                                                    <option value={district.id} key={district.id}>{district.name}</option>
                                                 )
                                             }) : null}
                                         </Form.Select>
@@ -304,14 +303,14 @@ export default function ProfilePage() {
                                 </Col>
                                 <Col lg={4}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{t('profile_update.city')}</Form.Label>
+                                        <Form.Label>{t('account.profile_update.city')}</Form.Label>
                                         <Form.Select name={userType + ".city"} value={user?.[userType]?.city}
                                             defaultValue={user?.[userType]?.city || ""}
                                             onChange={onChange}>
-                                            <option value={""}>{t('profile_update.city_select')}</option>
+                                            <option value={""}>{t('account.profile_update.city_select')}</option>
                                             {cities.length ? cities.map((city) => {
                                                 return (
-                                                    <option value={city.id}>{city.name}</option>
+                                                    <option value={city.id} key={city.id}>{city.name}</option>
                                                 )
                                             }) : null}
                                         </Form.Select>
@@ -322,7 +321,7 @@ export default function ProfilePage() {
                         {auth.user?.user_type === 2 ? (
                             <Col>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>{t('profile_update.hobbies')}</Form.Label>
+                                    <Form.Label>{t('account.profile_update.hobbies')}</Form.Label>
                                     <Form.Control type="text" name={userType + ".hobbies"}
                                         value={user?.[userType].hobbies}
                                         onChange={onChange} />
@@ -332,7 +331,7 @@ export default function ProfilePage() {
                         {auth.user?.user_type === 3 ? (
                             <Col>
                                 <Form.Group className="mb-3">
-                                    <Form.Label>{t('profile_update.profession')}</Form.Label>
+                                    <Form.Label>{t('account.profile_update.profession')}</Form.Label>
                                     <Form.Control type="text" name={userType + ".profession"}
                                         value={user?.[userType].profession}
                                         onChange={onChange} />
@@ -343,14 +342,14 @@ export default function ProfilePage() {
                             <>
                                 <Col lg={6}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{t('profile_update.school')}</Form.Label>
+                                        <Form.Label>{t('account.profile_update.school')}</Form.Label>
                                         <Form.Select name={userType + ".school"} value={user?.[userType]?.school}
                                             defaultValue={user?.[userType]?.school || ""}
                                             onChange={onChange}>
-                                            <option value={""}>{t('profile_update.school_select')}</option>
+                                            <option value={""}>{t('account.profile_update.school_select')}</option>
                                             {schools.length ? schools.map((school) => {
                                                 return (
-                                                    <option value={school.id}>{school.name}</option>
+                                                    <option value={school.id} key={school.id}>{school.name}</option>
                                                 )
                                             }) : null}
                                         </Form.Select>
@@ -358,7 +357,7 @@ export default function ProfilePage() {
                                 </Col>
                                 <Col lg={6}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{t('profile_update.branch')}</Form.Label>
+                                        <Form.Label>{t('account.profile_update.branch')}</Form.Label>
                                         <Form.Control type="text" name={userType + ".branch"}
                                             required
                                             value={user?.[userType].branch}
@@ -368,7 +367,7 @@ export default function ProfilePage() {
                             </>
                         ) : null}
                     </Row>
-                    <Button type={"submit"} className={"w-100"} disabled={fetching}>{t('profile_update.update')}</Button>
+                    <Button type={"submit"} className={"w-100"} disabled={fetching}>{t('account.profile_update.update')}</Button>
                 </Form>
             </Area>
         </Container>

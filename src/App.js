@@ -23,6 +23,14 @@ import BookDetail from "./pages/BookDetail";
 import AuthorsPage from "./pages/AuthorsPage";
 import AuthorDetailPage from './pages/AuthorDetailPage';
 import ProfilePage from './pages/ProfilePage';
+import ChangePassword from './pages/ChangePassword';
+import ReadingHistoryPage from './pages/ReadingHistoryPage';
+import ParentChildrenPage from './pages/ParentChildrenPage';
+import QuizHistoryPage from './pages/QuizHistoryPage';
+import InstructorClassroomsPage from './pages/InstructorClassroomsPage';
+import InstructorStudentsPage from "./pages/InstructorStudentsPage";
+import InstructorStudentsReportReadingPage from "./pages/InstructorStudentsReportReadingPage";
+import InstructorStudentsReportQuizPage from './pages/InstructorStudentsReportQuizPage';
 
 library.add(fab, fas, far);
 
@@ -91,7 +99,15 @@ function App() {
                 <FullWidthLayoutRoute path="/book/:slug" component={BookDetail} />
                 <FullWidthLayoutRoute path="/authors" component={AuthorsPage} />
                 <FullWidthLayoutRoute path="/author/:slug" component={AuthorDetailPage} />
-                <FullWidthLayoutRoute path="/profile" component={ProfilePage} />
+                <FullWidthLayoutRoute path="/profile/update" component={ProfilePage} />
+                <FullWidthLayoutRoute path="/profile/password-change" component={ChangePassword} />
+                <FullWidthLayoutRoute path="/profile/reading-history" component={ReadingHistoryPage} />
+                <FullWidthLayoutRoute path="/profile/quiz-history" component={QuizHistoryPage} />
+                <FullWidthLayoutRoute path="/profile/my-children" component={ParentChildrenPage} />
+                <FullWidthLayoutRoute path="/profile/my-classrooms" component={InstructorClassroomsPage} />
+                <FullWidthLayoutRoute path="/profile/classroom/students" component={InstructorStudentsPage} />
+                <FullWidthLayoutRoute path="/profile/classroom/reports/reading-report" component={InstructorStudentsReportReadingPage} />
+                <FullWidthLayoutRoute path="/profile/classroom/reports/quiz-report" component={InstructorStudentsReportQuizPage} />
                 <FullWidthLayoutRoute path="/" component={HomePage} />
               </Switch>
             </div>

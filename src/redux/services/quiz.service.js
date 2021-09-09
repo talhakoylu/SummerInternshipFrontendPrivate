@@ -16,6 +16,12 @@ class QuizService {
     createTakingQuizAnswer = (payload) => {
         return ApiService.post("/quiz/create-taking-quiz-answer", payload);
     };
+    getQuizHistoryByChild = () => {
+        return ApiService.get("/quiz/get-quiz-history-by-child");
+    };
+    getQuizHistoryByChildId = (child) => {
+        return ApiService.get("/quiz/get-quiz-history-by-child-id/" + child);
+    };
 }
 
 const quizService = new QuizService();
