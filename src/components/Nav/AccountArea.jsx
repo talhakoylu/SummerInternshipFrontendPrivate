@@ -31,6 +31,7 @@ export default function AccountArea() {
                     {user.user_type === 2 ? <Dropdown.Item as={Link} to = "/profile/quiz-history">{t('reports.quiz_history.quiz_history_page')}</Dropdown.Item> : null}
                     {user.user_type === 3 ? <Dropdown.Item as={Link} to = "/profile/my-children">{t('reports.my_children_page')}</Dropdown.Item> : null}
                     {user.user_type === 4 ? <Dropdown.Item as={Link} to = "/profile/my-classrooms">{t('reports.student_record.my_classes')}</Dropdown.Item> : null}
+                    {user.user_type === 4 & user.is_principal === true ? <Dropdown.Item as={Link} to = "/profile/my-school">{t('reports.school_record.my_school')}</Dropdown.Item> : null}
                     <Dropdown.Item onClick={() => {
                         dispatch(setUser(null));
                         localStorageClear();

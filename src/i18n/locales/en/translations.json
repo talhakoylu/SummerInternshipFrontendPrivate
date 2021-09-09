@@ -156,7 +156,9 @@
     },
     "errors" : {
         "login_required" : "You need to login.",
-        "login_token_expired" : "Since your session has expired, you have to log out and log in again."
+        "login_token_expired" : "Since your session has expired, you have to log out and log in again.",
+        "error" : "Error",
+        "permission_error" : "You don't have a permission to see this page."
     },
     "reports" : {
         "error" : "Error",
@@ -219,6 +221,16 @@
             "read_history_all" : "Reading Histories (All Students of the Class)",
             "most_incorrectly_answered_question" : "The Most Incorrectly Answered Question",
             "delete" : "Delete"
+        },
+        "school_record" : {
+            "my_school" : "My School",
+            "reading_histories" : "Reading Histories of Classes",
+            "quiz_histories" : "Quiz Histories of Classes",
+            "other_school_database" : "Other Schools Database",
+            "students" : "Students",
+            "student_not_found" : "Student not found.",
+            "my_school_quiz_history": "My School : Quiz History",
+            "my_school_reading_history": "My School : Reading History"
         }
     }
 }

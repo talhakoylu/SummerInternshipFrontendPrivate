@@ -22,9 +22,9 @@ export default function StudentReadingHistoryCard({ student, ...dist}) {
                     </div>
                     {student.reading_history.length ? <div className={"mt-3"}>
                         <small className={"fw-bold"}>{t('reports.student_record.books_read')}</small>
-                        {(!show && student.reading_history.length > 3 ? student.reading_history.slice(0, 3) : student.reading_history).map((readingHistory) => {
+                        {(!show && student.reading_history.length > 3 ? student.reading_history.slice(0, 3) : student.reading_history).map((readingHistory, i) => {
                             return (
-                                <div style={{ borderBottomWidth: 1, borderColor: "#ccc", borderBottomStyle: "dashed" }} className="my-1">
+                                <div style={{ borderBottomWidth: 1, borderColor: "#ccc", borderBottomStyle: "dashed" }} className="my-1" key={i}>
                                     <FontAwesomeIcon className={"me-2"} icon={"newspaper"} />
                                     <small>{readingHistory.book.name} <Badge bg={"warning"} className="ms-3 mb-1">{t('reports.student_record.read_count')}: {readingHistory.counter}</Badge></small>
                                 </div>

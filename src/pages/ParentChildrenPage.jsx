@@ -77,5 +77,5 @@ export default function ParentChildrenPage() {
                 <AddChildModal getChildren={getChildren} show={show} handleClose={handleClose} />
             </Container>
         </>
-    ) : <RedirectToHome title={t('reports.error')} message={t('reports.child_record.user_type_error_parent')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

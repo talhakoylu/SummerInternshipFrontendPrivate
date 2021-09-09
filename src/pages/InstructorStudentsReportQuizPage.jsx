@@ -34,7 +34,7 @@ export default function InstructorStudentsReportQuizPage() {
 
                 let answers = [];
 
-                _classroom.students.length && _classroom.students.map((student) => {
+                _classroom?.students?.length && _classroom.students.map((student) => {
                     student.student.quiz_history.length && student.student.quiz_history.map((quizHistory) => {
                         let wrongAnswers = quizHistory.answers.filter(x => x.answer_is_correct === false);
                         if (wrongAnswers.length) {
@@ -96,9 +96,9 @@ export default function InstructorStudentsReportQuizPage() {
                             ) : null}
                             <Row className={"my-n2"}>
                                 {
-                                    classroom.students.map((student) => {
+                                    classroom.students.map((student, i) => {
                                         return (
-                                            <StudentQuizHistoryCard student={student.student} className={"my-2"} />
+                                            <StudentQuizHistoryCard student={student.student} className={"my-2"} key={i}/>
                                         )
                                     })
                                 }
@@ -111,5 +111,5 @@ export default function InstructorStudentsReportQuizPage() {
             </Container>
         </>
     ) : null
-    ) : <RedirectToHome title={t('reports.error')} message={t('reports.student_record.user_type_error_instructor')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

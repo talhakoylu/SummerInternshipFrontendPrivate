@@ -53,7 +53,7 @@ export default function InstructorStudentsReportReadingPage() {
                             </Button>
                         </Link>
                     )}>
-                    {classroom.students.length ? (
+                    {classroom?.students?.length ? (
                         <div>
                             <div className={"mb-2"}>
                                 <div className={"m-n2"}>
@@ -69,9 +69,9 @@ export default function InstructorStudentsReportReadingPage() {
                             </div>
                             <Row className={"my-n2"}>
                                 {
-                                    classroom.students.map((student) => {
+                                    classroom.students.map((student, i) => {
                                         return (
-                                            <StudentReadingHistoryCard student={student.student} className={"my-2"} />
+                                            <StudentReadingHistoryCard student={student.student} className={"my-2"} key={i}/>
                                         )
                                     })
                                 }
@@ -84,5 +84,5 @@ export default function InstructorStudentsReportReadingPage() {
             </Container>
         </>
     ) : null
-    ) : <RedirectToHome title={t('reports.error')} message={t('reports.student_record.user_type_error_instructor')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

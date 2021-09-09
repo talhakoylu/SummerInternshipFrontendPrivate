@@ -37,6 +37,21 @@ class SchoolService {
       "/school/student-list-item-destroy/" + classId + "-" + childId
     );
   };
+  getAllClassQuizHistoryByPrincipal = () => {
+    return ApiService.get(
+      "/school/reports/get-all-classes-quiz-history-by-school-principal"
+    );
+  };
+  getAllClassReadingHistoryByPrincipal = () => {
+    return ApiService.get(
+      "/school/reports/get-all-class-reading-history-by-principal"
+    );
+  };
+  getAllClassHistoryByCountryForByPrincipal = () => {
+    return ApiService.get(
+      "/school/reports/get-all-class-reading-history-by-country-for-principal"
+    );
+  };
 }
 
 const schoolService = new SchoolService();

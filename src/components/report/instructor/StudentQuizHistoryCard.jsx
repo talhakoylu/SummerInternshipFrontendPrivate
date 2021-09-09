@@ -27,7 +27,7 @@ export default function StudentQuizHistoryCard({ student, ...dist }) {
                             <small className={"fw-bold pb-2 d-block"}>{t('reports.student_record.solved_quizzes')}</small>
 
                             {(!show && student.quiz_history.length > 3 ? student.quiz_history.slice(0, 3) : student.quiz_history).map((quizHistory, i) => {
-                                return <QuizHistoryCard item={quizHistory} className="mb-2"/>
+                                return <QuizHistoryCard item={quizHistory} className="mb-2" key={i}/>
                             })}
                             {!show && student.quiz_history.length > 3 ? (
                                 <div className={"text-center"}>

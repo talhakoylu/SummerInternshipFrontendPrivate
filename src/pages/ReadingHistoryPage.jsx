@@ -32,5 +32,5 @@ export default function ReadingHistoryPage() {
                 <ReadingHistoryList data={data} />
             </Area>
         </Container>
-    ) : <RedirectToHome title={t('reports.error')} message = {t('reports.reading_history.user_type_error')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

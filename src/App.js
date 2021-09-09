@@ -31,6 +31,9 @@ import InstructorClassroomsPage from './pages/InstructorClassroomsPage';
 import InstructorStudentsPage from "./pages/InstructorStudentsPage";
 import InstructorStudentsReportReadingPage from "./pages/InstructorStudentsReportReadingPage";
 import InstructorStudentsReportQuizPage from './pages/InstructorStudentsReportQuizPage';
+import SchoolPage from './pages/SchoolPage';
+import SchoolReportsReadingPage from './pages/SchoolReportsReadingPage';
+import SchoolReportsQuizPage from './pages/SchoolReportsQuizPage';
 
 library.add(fab, fas, far);
 
@@ -108,6 +111,10 @@ function App() {
                 <FullWidthLayoutRoute path="/profile/classroom/students" component={InstructorStudentsPage} />
                 <FullWidthLayoutRoute path="/profile/classroom/reports/reading-report" component={InstructorStudentsReportReadingPage} />
                 <FullWidthLayoutRoute path="/profile/classroom/reports/quiz-report" component={InstructorStudentsReportQuizPage} />
+                <FullWidthLayoutRoute path="/profile/my-school" component={SchoolPage} />
+                <FullWidthLayoutRoute path="/profile/my-school" component={SchoolPage} />
+                <FullWidthLayoutRoute path="/profile/my-school-reports/reading-history" component={SchoolReportsReadingPage} />
+                <FullWidthLayoutRoute path="/profile/my-school-reports/quiz-history" component={SchoolReportsQuizPage} />
                 <FullWidthLayoutRoute path="/" component={HomePage} />
               </Switch>
             </div>

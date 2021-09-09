@@ -86,14 +86,15 @@ export default function InstructorStudentsPage() {
                     {children.length ? (
                         <Row className={"my-n2"}>
                             {
-                                children.map((child) => {
+                                children.map((child, i) => {
                                     return (
                                         <ChildCard
                                             deleteService={() => SchoolService.studentListItemDestroy(classroom.id, child.child.user.id)}
                                             quizHistoryHandleShow={quizHistoryHandleShow}
                                             readingHistoryHandleShow={readingHistoryHandleShow} setUser={setUser}
                                             children={children} setChildren={setChildren} child={child}
-                                            className={"my-2"} />
+                                            className={"my-2"}
+                                            key={i} />
                                     )
                                 })
                             }
@@ -110,5 +111,5 @@ export default function InstructorStudentsPage() {
             </Container>
         </>
     ) : null
-    ) : <RedirectToHome title={t('reports.error')} message = {t('reports.student_record.user_type_error_instructor')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

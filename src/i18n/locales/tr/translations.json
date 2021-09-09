@@ -156,7 +156,9 @@
     },
     "errors" : {
         "login_required" : "Giriş yapmanız gerekiyor.",
-        "login_token_expired" : "Oturum süreniz dolduğu için çıkış yapıp tekrar giriş yapmanız gerekiyor."
+        "login_token_expired" : "Oturum süreniz dolduğu için çıkış yapıp tekrar giriş yapmanız gerekiyor.",
+        "error" : "Hata",
+        "permission_error" : "Bu sayfayı görüntülemek için gereken izne sahip değilsiniz."
     },
     "reports" : {
         "error" : "Hata",
@@ -219,6 +221,16 @@
             "read_history_all" : "Okuma Geçmişleri (Sınıfın Tüm Öğrencileri)",
             "most_incorrectly_answered_question" : "En Çok Yanlış Cevap Verilen Soru",
             "delete" : "Sil"
+        },
+        "school_record" : {
+            "my_school" : "Okulum",
+            "reading_histories" : "Sınıfların Okuma Geçmişleri",
+            "quiz_histories" : "Sınıfların Sınav Geçmişleri",
+            "other_school_database" : "Diğer Okullar Veritabanı",
+            "students" : "Öğrenciler",
+            "student_not_found" : "Öğrenci bulunamadı.",
+            "my_school_quiz_history": "Benim Okulum : Sınav Geçmişi",
+            "my_school_reading_history": "Benim Okulum : Okuma Geçmişi"
         }
     }
     

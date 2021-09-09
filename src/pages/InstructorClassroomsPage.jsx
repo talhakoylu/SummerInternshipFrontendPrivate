@@ -50,14 +50,15 @@ export default function InstructorClassroomsPage() {
                     {classrooms.length ? (
                         <Row className={"my-n2"}>
                             {
-                                classrooms.map((classroom) => {
+                                classrooms.map((classroom,i) => {
                                     return (
                                         <ClassroomCard
                                             setClassroom={setClassroom}
                                             handleShow={handleShow}
                                             classrooms={classrooms} setClassrooms={setClassrooms}
                                             classroom={classroom}
-                                            className={"my-2"} />
+                                            className={"my-2"}
+                                            key={i} />
                                     )
                                 })
                             }
@@ -69,5 +70,5 @@ export default function InstructorClassroomsPage() {
                 <AddUpdateClassroomModal classroom={classroom} getClassrooms={getClassrooms} show={show} handleClose={handleClose} />
             </Container>
         </>
-    ) : <RedirectToHome title={t('reports.error')} message={t('reports.student_record.user_type_error_instructor')}></RedirectToHome>
+    ) : <RedirectToHome title={t('errors.error')} message={t('errors.permission_error')}></RedirectToHome>
 }

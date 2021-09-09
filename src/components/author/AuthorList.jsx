@@ -27,9 +27,9 @@ export default function AuthorList() {
     return authors.length ? (
         <Row className={"my-n2"}>
             {
-                authors.map((author) => {
+                authors.map((author,i) => {
                     return (
-                        <AuthorCard author={author} className={"my-2"} />
+                        <AuthorCard author={author} className={"my-2"} key={i}/>
                     )
                 })
             }
