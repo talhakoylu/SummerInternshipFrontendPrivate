@@ -34,8 +34,8 @@ export default function InstructorStudentsReportQuizPage() {
 
                 let answers = [];
 
-                _classroom?.students?.length && _classroom.students.map((student) => {
-                    student.student.quiz_history.length && student.student.quiz_history.map((quizHistory) => {
+                _classroom?.students?.length && _classroom.students.map((student) => { // eslint-disable-line array-callback-return
+                    student.student.quiz_history.length && student.student.quiz_history.map((quizHistory) => { // eslint-disable-line array-callback-return
                         let wrongAnswers = quizHistory.answers.filter(x => x.answer_is_correct === false);
                         if (wrongAnswers.length) {
                             answers = answers.concat(wrongAnswers)
@@ -68,7 +68,7 @@ export default function InstructorStudentsReportQuizPage() {
 
     useEffect(() => {
         getChildren()
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return auth.user && auth.user.user_type === 4 ? (classroom ? (
         <>

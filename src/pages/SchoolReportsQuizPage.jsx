@@ -52,9 +52,9 @@ const SchoolReportsQuizItem = ({ ...dist }) => {
 }
 
 export default function SchoolReportsQuizPage() {
-    const [classroom, setClassroom] = useState(null);
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const [classroom, setClassroom] = useState(null); // eslint-disable-line no-unused-vars
+    const [show, setShow] = useState(false); // eslint-disable-line no-unused-vars
+    const handleClose = () => setShow(false); // eslint-disable-line no-unused-vars
     const handleShow = () => setShow(true);
     const { t } = useTranslation();
 
@@ -75,7 +75,7 @@ export default function SchoolReportsQuizPage() {
 
     useEffect(() => {
         fetchData()
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>

@@ -56,7 +56,7 @@ export default function InstructorStudentsPage() {
 
     useEffect(() => {
         getChildren()
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
 
     return auth.user && auth.user.user_type === 4 ? (classroom ? (

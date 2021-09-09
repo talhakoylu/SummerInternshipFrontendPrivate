@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SchoolService } from "../redux/services";
 import Area from './../components/Area';
@@ -37,7 +37,7 @@ export default function InstructorClassroomsPage() {
 
     useLayoutEffect(() => {
         getClassrooms()
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return auth.user && auth.user.user_type === 4 ? (
         <>

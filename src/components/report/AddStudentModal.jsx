@@ -27,7 +27,7 @@ export default function AddStudentModal({classroom, getChildren, ...dist}) {
                     })
                     .catch(err => {
                         if (err?.response?.data?.child) {
-                            for (const [key, value] of Object.entries(err.response.data.child)) {
+                            for (const [key, value] of Object.entries(err.response.data.child)) { // eslint-disable-line no-unused-vars
                                 notification.add('danger', t('reports.error'), `${value}`)
                             }
                         } else {

@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Card } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Accordion } from 'react-bootstrap';
 import QuizHistoryCard from './../quiz_history/QuizHistoryCard';
 
 export default function StudentQuizHistoryCard({ student, ...dist }) {

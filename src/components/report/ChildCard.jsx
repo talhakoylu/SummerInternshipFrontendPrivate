@@ -2,7 +2,6 @@ import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import notification from './../../plugins/notification';
-import { AuthService } from "../../redux/services";
 import { useTranslation } from "react-i18next";
 
 export default function ChildCard({ readingHistoryHandleShow, quizHistoryHandleShow, setUser, children, setChildren, deleteService, child: { child: { user } }, ...dist }) {

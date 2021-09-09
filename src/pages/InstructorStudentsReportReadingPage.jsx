@@ -39,12 +39,12 @@ export default function InstructorStudentsReportReadingPage() {
 
     useEffect(() => {
         getChildren()
-    }, []);
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return auth.user && auth.user.user_type === 4 ? (classroom ? (
         <>
             <Container>
-                <Area title={classroom.name + ": " + "Toplu Okuma Geçmişi"}
+                <Area title={classroom.name + ": " + t('reports.student_record.read_history_all')}
                     toolbar={(
                         <Link to={"/profile/classroom/students?classroom=" + classroom.id}>
                             <Button variant={"light"} size={"sm"}>
